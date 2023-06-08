@@ -1,0 +1,10 @@
+asgiref==3.7.2
+certifi==2023.5.7
+cloudinary==1.33.0
+Django==4.2
+django-decouple==2.1
+Pillow
+six==1.16.0
+sqlparse==0.4.4
+tzdata==2023.3
+urllib3==1.26.16
