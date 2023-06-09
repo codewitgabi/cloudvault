@@ -2,6 +2,7 @@ from django.core.files.storage import Storage
 from django.conf import settings
 import cloudinary
 from cloudinary.uploader import upload
+from cloudinary import CloudinaryResource
 
 
 class CloudinaryStorage(Storage):
@@ -15,7 +16,7 @@ class CloudinaryStorage(Storage):
 
     def _save(self, name, content):
         # upload file to cloudinary
-        response = upload(content.file, overwrite=False)
+        response = upload(content, overwrite=False, resource_type="auto")
 
         # return cloudinary secure url
         url = response["secure_url"]
@@ -34,12 +35,9 @@ class CloudinaryStorage(Storage):
         """
         try:
             response = cloudinary.api.resource(name)
-            print(response["exists"])
 
             return response["exists"]
         except:
             return False
-
-
 
 
