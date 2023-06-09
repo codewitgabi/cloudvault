@@ -22,6 +22,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    "test_app.apps.TestAppConfig",
+
+    "cloudvault", # add this
 ]
 
 MIDDLEWARE = [
@@ -34,7 +38,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'cloudvault.urls'
+ROOT_URLCONF = 'Demo.urls'
 
 TEMPLATES = [
     {
@@ -52,7 +56,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'cloudvault.wsgi.application'
+WSGI_APPLICATION = 'Demo.wsgi.application'
 
 
 # Database
@@ -91,16 +95,20 @@ TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
+USE_L10N = True
+
 USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 # Default primary key field type
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Package Requirements
 
 DEFAULT_FILE_STORAGE = "cloudvault.cloud_storage.CloudinaryStorage"
 
@@ -109,3 +117,5 @@ CLOUDINARY = {
     'api_key': config("CLOUDINARY_API_KEY"),
     'api_secret': config("CLOUDINARY_API_SECRET"),
 }
+
+
